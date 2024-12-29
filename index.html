@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Maty ochronne - kalkulator</title>
+    <link href="style.css" rel="stylesheet" />
+
+  
+  </head>
+  <body>
+    <nav>
+      <div class="calc-container">
+        <div class="calc-logo">
+          <img src="img/logo.png" alt="Decortrend" />
+        </div>
+      </div>
+    </nav>
+
+    <div class="calc-container" id="calcAll">
+      <div id="calc-item1" class="calc-item">
+        <div class="calc-shape-select">
+          <h3 class="select-shape">Wybierz kształt maty:</h3>
+          <div class="calc-shape">
+            <ul>
+              <li data-shape="rectangle">
+                <div class="select-rectangle"></div>
+                <span>prostokąt</span>
+              </li>
+              <li data-shape="square">
+                <div class="select-square"></div>
+                <span>kwadrat</span>
+              </li>
+              <li data-shape="circle">
+                <div class="select-circle"></div>
+                <span>okrąg</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="calc-shape-rectangle calc-shape-diabled calc-shape-form">
+          <!--Prostokąt -->
+		  <div class="shape-container">
+			<button class="change-shape"><img src="img/arrow1.png"></button>
+			<h1 class="shape-name">Prostokątna mata</h1>
+			<button class="change-shape">zmień kształt</button>
+		  </div>	
+          <div class="calc-forms">
+            <div class="calc-form-item">
+              <input
+                type="number"
+                inputmode="numeric"
+                step="0.01"
+                class="calc-input"
+                placeholder="Wartość w cm"
+                min="1"
+                max="180"
+                id="rectangle-width"
+                data-attribute="width"
+              />
+              <span class="calc-input-text">cm</span>
+              <label class="calc-form-label">Szerokość maty</label>
+              <div class="info-box">
+                <span class="info-icon">i</span>
+                <span class="info-text">Maksymalna szerokość 180 cm</span>
+              </div>
+            </div>
+
+            <div class="calc-form-item">
+              <input
+                type="number"
+                inputmode="numeric"
+                step="0.01"
+                class="calc-input"
+                placeholder="Wartość w cm"
+                min="1"
+                max="2500"
+                id="rectangle-height"
+                data-attribute="height"
+              />
+              <span class="calc-input-text">cm</span>
+              <label class="calc-form-label">Długość maty</label>
+              <div class="info-box">
+                <span class="info-icon">i</span>
+                <span class="info-text">Maksymalna długość 2500 cm</span>
+              </div>
+            </div>
+
+            <div class="calc-form-item">
+              <select class="calc-select calc-edges">
+                <option value="45">Ścięte</option>
+                <option selected value="90">Proste</option>
+              </select>
+              <label class="calc-form-label">Brzegi</label>
+              <div class="info-box">
+                <span class="info-icon">i</span>
+                <span class="info-text"
+                  >Zobacz różnicę
+                  <a target="_blank" href="img/kanty.jpg">tutaj</a></span
+                >
+              </div>
+            </div>
+			<div class="calc-form-item">
+              <select id="calc-thick-1" class="calc-select calc-thick">
+                <option value=2>0,2mm</option>
+				<option value=5>0,5mm</option>
+                <option selected value=7>0,7mm</option>
+              </select>
+              <label class="calc-form-label">Grubość</label>
+              
+            </div>
+
+            <div class="calc-form-item">
+              <select class="calc-select calc-corners">
+                <option selected value="0">Bez zaokrąglenia</option>
+                <option value="2">2mm</option>
+                <option value="3">3mm</option>
+                <option value="4">4mm</option>
+                <option value="5">5mm</option>
+                <option value="6">6mm</option>
+                <option value="7">7mm</option>
+                <option value="8">8mm</option>
+                <option value="9">9mm</option>
+                <option value="10">10mm</option>
+                <option value="11">11mm</option>
+                <option value="12">12mm</option>
+                <option value="13">13mm</option>
+                <option value="14">14mm</option>
+                <option value="15">15mm</option>
+                <option value="16">16mm</option>
+                <option value="18">18mm</option>
+                <option value="20">20mm</option>
+                <option value="22">22mm</option>
+                <option value="24">24mm</option>
+                <option value="26">26mm</option>
+                <option value="28">28mm</option>
+                <option value="30">30mm</option>
+                <option value="32">32mm</option>
+                <option value="34">34mm</option>
+                <option value="36">36mm</option>
+                <option value="38">38mm</option>
+                <option value="40">40mm</option>
+                <option value="45">45mm</option>
+                <option value="50">50mm</option>
+                <option value="55">55mm</option>
+                <option value="60">60mm</option>
+                <option value="65">65mm</option>
+                <option value="70">70mm</option>
+                <option value="80">80mm</option>
+                <option value="90">90mm</option>
+                <option value="100">100mm</option>
+              </select>
+              <label class="calc-form-label">Zaokrąglone narożniki</label>
+              <div class="info-box">
+                <span class="info-icon">i</span>
+                <span class="info-text"
+                  >Sprawdź jak zmierzyć
+                  <a
+                    target="_blank"
+                    href="zaokraglenia.pdf"
+                    >tutaj</a
+                  ></span
+                >
+              </div>
+            </div>
+
+            <div class="calc-form-item calc-from-item-quantity">
+              <input
+                type="number"
+                class="calc-input calc-quantity"
+                value="1"
+                min="1"
+                max="99"
+                id="quant-rectangle"
+                data-attribute="quantity"
+              />
+              <label class="calc-form-label">Ilość</label>
+            </div>
+          </div>
+          <div id="total-rectangle" class="price price-hidden">
+            Cena: <span id="price-rectangle"></span> zł
+          </div>
+        </div>
+
+        <div class="calc-shape-square calc-shape-diabled calc-shape-form">
+          <!--Kwadrat -->
+          <div class="shape-container">
+			<button class="change-shape"><img src="img/arrow1.png"></button>
+			<h1 class="shape-name">Kwadratowa mata</h1>
+			<button class="change-shape">zmień kształt</button>
+		  </div>
+          <div class="calc-forms">
+            <div class="calc-form-item">
+              <input
+                type="number"
+                inputmode="numeric"
+                step="0.01"
+                class="calc-input"
+                placeholder="Wartość w cm"
+                min="1"
+                max="180"
+                id="square-width"
+                data-attribute="width"
+              />
+              <span class="calc-input-text">cm</span>
+              <label class="calc-form-label">Szerokość maty</label>
+              <div class="info-box">
+                <span class="info-icon">i</span>
+                <span class="info-text">Maksymalna szerokość 180 cm</span>
+              </div>
+            </div>
+
+            <div class="calc-form-item">
+              <select class="calc-select calc-edges">
+                <option value="45">Ścięte</option>
+                <option selected value="90">Proste</option>
+              </select>
+              <label class="calc-form-label">Brzegi</label>
+              <div class="info-box">
+                <span class="info-icon">i</span>
+                <span class="info-text"
+                  >Zobacz różnicę
+                  <a target="_blank" href="img/kanty.jpg">tutaj</a></span
+                >
+              </div>
+            </div>
+			<div class="calc-form-item">
+              <select id="calc-thick-2" class="calc-select calc-thick">
+                <option value=2>0,2mm</option>
+				<option value=5>0,5mm</option>
+                <option selected value=7>0,7mm</option>
+              </select>
+              <label class="calc-form-label">Grubość</label>
+              
+            </div>
+            <div class="calc-form-item">
+              <select class="calc-select calc-corners">
+                <option selected value="0">Bez zaokrąglenia</option>
+                <option value="2">2mm</option>
+                <option value="3">3mm</option>
+                <option value="4">4mm</option>
+                <option value="5">5mm</option>
+                <option value="6">6mm</option>
+                <option value="7">7mm</option>
+                <option value="8">8mm</option>
+                <option value="9">9mm</option>
+                <option value="10">10mm</option>
+                <option value="11">11mm</option>
+                <option value="12">12mm</option>
+                <option value="13">13mm</option>
+                <option value="14">14mm</option>
+                <option value="15">15mm</option>
+                <option value="16">16mm</option>
+                <option value="18">18mm</option>
+                <option value="20">20mm</option>
+                <option value="22">22mm</option>
+                <option value="24">24mm</option>
+                <option value="26">26mm</option>
+                <option value="28">28mm</option>
+                <option value="30">30mm</option>
+                <option value="32">32mm</option>
+                <option value="34">34mm</option>
+                <option value="36">36mm</option>
+                <option value="38">38mm</option>
+                <option value="40">40mm</option>
+                <option value="45">45mm</option>
+                <option value="50">50mm</option>
+                <option value="55">55mm</option>
+                <option value="60">60mm</option>
+                <option value="65">65mm</option>
+                <option value="70">70mm</option>
+                <option value="80">80mm</option>
+                <option value="90">90mm</option>
+                <option value="100">100mm</option>
+              </select>
+              <label class="calc-form-label">Zaokrąglone narożniki</label>
+              <div class="info-box">
+                <span class="info-icon">i</span>
+                <span class="info-text"
+                  >Sprawdź jak zmierzyć
+                  <a
+                    target="_blank"
+                    href="zaokraglenia.pdf"
+                    >tutaj</a
+                  ></span
+                >
+              </div>
+            </div>
+
+            <div class="calc-form-item calc-from-item-quantity">
+              <input
+                type="number"
+                class="calc-input calc-quantity"
+                value="1"
+                min="1"
+                max="99"
+                id="quant-square"
+                data-attribute="quantity"
+              />
+              <label class="calc-form-label">Ilość</label>
+            </div>
+          </div>
+          <div id="total-square" class="price price-hidden">
+            Cena: <span id="price-square"></span> zł
+          </div>
+        </div>
+
+        <div class="calc-shape-circle calc-shape-diabled calc-shape-form">
+          <!--Okrąg -->
+          <div class="shape-container">
+			<button class="change-shape"><img src="img/arrow1.png"></button>
+			<h1 class="shape-name">Okrągła mata</h1>
+			<button class="change-shape">zmień kształt</button>
+		  </div>
+          <div class="calc-forms">
+            <div class="calc-form-item">
+              <input
+                type="number"
+                inputmode="numeric"
+                step="0.01"
+                class="calc-input"
+                placeholder="Wartość w cm"
+                min="1"
+                max="180"
+                id="circle-width"
+                data-attribute="width"
+              />
+              <span class="calc-input-text">cm</span>
+              <label class="calc-form-label">Średnica maty</label>
+              <div class="info-box">
+                <span class="info-icon">i</span>
+                <span class="info-text">Maksymalna średnica 180 cm</span>
+              </div>
+            </div>
+
+            <div class="calc-form-item">
+              <select class="calc-select calc-edges">
+				<option value="45">Ścięte</option>
+                <option selected value="90">Prosty</option>
+				</select>
+              <label class="calc-form-label">Brzegi</label>
+              <div class="info-box">
+                <span class="info-icon">i</span>
+                <span class="info-text"
+                  >Zobacz różnicę
+                  <a target="_blank" href="img/kanty.jpg">tutaj</a></span>
+              </div>
+            </div>
+			<div class="calc-form-item">
+              <select id="calc-thick-1" class="calc-select calc-thick">
+                <option value=2>0,2mm</option>
+				<option value=5>0,5mm</option>
+                <option selected value=7>0,7mm</option>
+              </select>
+              <label class="calc-form-label">Grubość</label>
+              
+            </div>
+            <div class="calc-form-item calc-from-item-quantity">
+              <input
+                type="number"
+                class="calc-input calc-quantity"
+                value="1"
+                min="1"
+                max="99"
+                id="quant-circle"
+                data-attribute="quantity"
+              />
+              <label class="calc-form-label">Ilość</label>
+            </div>
+          </div>
+          <div id="total-circle" class="price price-hidden">
+            Cena: <span id="price-circle"></span> zł
+          </div>
+        </div>
+
+        <div class="calc-delete"><img src="img/x.png" alt="Usuń" /></div>
+      </div>
+    </div>
+
+    <div class="calc-container">
+      <div class="buttons-panel calc-hidden">
+        <button class="calc-final">Zobacz jak zamówić</button>
+        <button class="calc-nextitem">Dodaj kolejną matę</button>
+        <div class="price-total">Razem: <span>0.00 zł</span></div>
+      </div>
+    </div>
+
+    <section id="calc-total" class="calc-hidden">
+      <div id="calc-total-first" class="calc-total-element">
+        <div class="calc-container">
+          <div class="calc-row">
+            <div class="calc-col">
+              <div class="onestep">
+                <div class="onestep-number">1</div>
+                <div class="onestep-txt">
+                  <h4>Wejdź na naszą ofertę na allegro</h4>
+                  <a
+                    href="https://allegro.pl/uzytkownik/Swip_2009/architektura-ogrodowa-plandeki-99709?string=1000cm"
+                    target="_blank"
+                    class="calc-allegro"
+                  >
+                    Otwórz ofertę
+                  </a>
+                </div>
+              </div>
+              <div class="onestep-img">
+                <img src="img/tel1.png" alt="" />
+              </div>
+            </div>
+
+            <div class="calc-col">
+              <div class="onestep">
+                <div class="onestep-number">2</div>
+                <div class="onestep-txt">
+                  <h4>
+                    Kup
+                    <span class="summary-quantity quant-orange"></span>
+                    <br />
+                    <span style="font-weight: 400">
+                      (cena to <span class="summary-price"></span> zł + koszty
+                      dostawy)
+                    </span>
+                  </h4>
+                </div>
+              </div>
+              <div class="onestep-img">
+                <img src="img/tel2.png" alt="" />
+              </div>
+            </div>
+
+            <div class="calc-col">
+              <div class="onestep">
+                <div class="onestep-number">3</div>
+                <h4>
+                  Skopiuj poniższe informacje<br />i wklej je do pola z uwagami
+                  do zamówienia
+                </h4>
+              </div>
+              <div class="copythis">
+                <div id="copythistxt" class="summary-text-to-copy">
+                  1: Prostokąt 30x40cm kąt90 R-4mm 1szt.<br />
+                  2: Kwadrat 50cm kąt45 R-0mm 2szt.<br />
+                  3: Okrąg 60cm kąt90 1szt.
+                </div>
+                <button class="copythis-btn">
+                  Skopiuj
+                  <img
+                    id="copythis-check"
+                    class="copythis-check-hidden"
+                    src="img/check.png"
+                    alt=""
+                  />
+                  <p id="copythis-info" style="display: none">
+                    Dane są już w schowku!
+                    <b>Wklej je jako uwagi do zamówienia.</b>
+                  </p>
+                </button>
+              </div>
+              <div class="onestep-img">
+                <img src="img/step3.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="calc-new">
+            <button onClick="window.location.reload();">
+              Stwórz nową kalkulacje
+            </button>
+			<button class="login-change">Popraw kalkulacje</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
